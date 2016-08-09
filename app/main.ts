@@ -12,6 +12,7 @@ dragonAttack.subscribe((x) => {
 });
 
 const barbarianAttack = Observable.fromEvent(barbarianAttackButton, 'click')
+							.throttleTime(1000)
 							.mapTo({ name: 'Barbarian', damage: 10 });
 
 barbarianAttack.subscribe((x) => {
