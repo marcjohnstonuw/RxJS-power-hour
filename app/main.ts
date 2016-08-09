@@ -11,8 +11,9 @@ dragonAttack.subscribe((x) => {
 	el.innerHTML = currentHP - 10;
 });
 
-const barbarianAttack = Observable.fromEvent(barbarianAttackButton, 'click');
+const barbarianAttack = Observable.fromEvent(barbarianAttackButton, 'click')
+							.mapTo({ name: 'Barbarian', damage: 10 });
 
 barbarianAttack.subscribe((x) => {
-	console.log('got click, here is the event :' + x);
-})
+	console.log('got click, here is the attack information :' + JSON.stringify(x));
+});

@@ -8,8 +8,9 @@ dragonAttack.subscribe(function (x) {
     var currentHP = parseInt(el.innerHTML);
     el.innerHTML = currentHP - 10;
 });
-var barbarianAttack = Rx_1.Observable.fromEvent(barbarianAttackButton, 'click');
+var barbarianAttack = Rx_1.Observable.fromEvent(barbarianAttackButton, 'click')
+    .mapTo({ name: 'Barbarian', damage: 10 });
 barbarianAttack.subscribe(function (x) {
-    console.log('got click, here is the event :' + x);
+    console.log('got click, here is the attack information :' + JSON.stringify(x));
 });
 //# sourceMappingURL=main.js.map
