@@ -11,6 +11,9 @@ dragonAttack.subscribe(function (x) {
 var barbarianAttack = Rx_1.Observable.fromEvent(barbarianAttackButton, 'click')
     .mapTo({ name: 'Barbarian', damage: 10 });
 barbarianAttack.subscribe(function (x) {
-    console.log('got click, here is the attack information :' + JSON.stringify(x));
+    console.log(x.name + ' attacks for : ' + x.damage + ' damage');
+    var el = document.querySelector('.enemy-list .enemy:first-child .current-hit-points');
+    var currentHP = parseInt(el.innerHTML);
+    el.innerHTML = currentHP - x.damage;
 });
 //# sourceMappingURL=main.js.map
